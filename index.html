@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7f9ff">
+  <title>FocusFlow — Smart Study Planner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#top" aria-label="FocusFlow home"><span class="brand-mark">✦</span><span>focus<span>flow</span></span></a>
+      <nav aria-label="Main navigation">
+        <a class="nav-link active" href="#dashboard"><span>▦</span> Dashboard</a>
+        <a class="nav-link" href="#subjects"><span>◈</span> Subjects</a>
+        <a class="nav-link" href="#today"><span>✓</span> Today's plan</a>
+      </nav>
+      <div class="sidebar-tip">
+        <span class="tip-icon">☀</span>
+        <strong>Small steps,<br>big results.</strong>
+        <p>Stay consistent and let your future self thank you.</p>
+      </div>
+      <div class="sidebar-footer"><span class="avatar">S</span><span>Study session</span><button class="icon-btn" id="clearData" title="Reset planner" aria-label="Reset planner">↺</button></div>
+    </aside>
+
+    <main class="main-content" id="top">
+      <header class="topbar"><div><p class="eyebrow">SATURDAY, SEPTEMBER 19</p><h1>Good morning, scholar <span>✦</span></h1></div><button class="mobile-menu" id="mobileMenu" aria-label="Toggle menu">☰</button><div class="header-actions"><button class="icon-btn notification" aria-label="Notifications">♧<i></i></button><span class="avatar avatar-large">S</span></div></header>
+
+      <section class="hero" id="dashboard">
+        <div><span class="pill">YOUR STUDY SPACE</span><h2>Make today<br><em>count.</em></h2><p>Plan with purpose. Learn at your own pace.</p></div>
+        <div class="hero-art" aria-hidden="true"><span class="sun">☼</span><span class="spark spark-one">✦</span><span class="spark spark-two">✧</span><span class="planet"></span><span class="cloud cloud-one"></span><span class="cloud cloud-two"></span></div>
+      </section>
+
+      <section class="stats-grid" aria-label="Study statistics">
+        <article class="stat-card"><div class="stat-icon purple">◷</div><div><span>Days remaining</span><strong id="daysRemaining">—</strong><small id="examLabel">Set an exam date</small></div></article>
+        <article class="stat-card"><div class="stat-icon orange">◒</div><div><span>Overall progress</span><strong id="overallProgress">0%</strong><small>Keep going, you've got this!</small></div></article>
+        <article class="stat-card"><div class="stat-icon green">⌁</div><div><span>Study streak</span><strong id="studyStreak">0 days</strong><small>Complete a task to start</small></div></article>
+      </section>
+
+      <div class="content-grid">
+        <section class="panel planner-panel" id="subjects">
+          <div class="panel-heading"><div><p class="section-kicker">BUILD YOUR PLAN</p><h3>Subjects & exam</h3></div><span class="step-badge">01 / 02</span></div>
+          <form id="subjectForm" class="subject-form">
+            <label>Subject name<input id="subjectName" type="text" placeholder="e.g. Data Structures" maxlength="32" required></label>
+            <label>Difficulty<select id="difficulty"><option value="easy">Easy</option><option value="medium" selected>Medium</option><option value="hard">Hard</option></select></label>
+            <button class="add-btn" type="submit">+ Add subject</button>
+          </form>
+          <div class="subject-list" id="subjectList"><div class="empty-state">Add your subjects above to get started.</div></div>
+          <div class="exam-row"><label for="examDate"><span class="calendar-icon">▣</span><span><b>When is your exam?</b><small>We'll organize your days around it.</small></span></label><input id="examDate" type="date"></div>
+          <button class="generate-btn" id="generatePlan" type="button">Generate my study plan <span>→</span></button>
+          <p class="save-note">⌁ Your plan saves automatically in this browser</p>
+        </section>
+
+        <section class="panel today-panel" id="today">
+          <div class="panel-heading"><div><p class="section-kicker">STAY ON TRACK</p><h3>Today's plan</h3></div><span class="date-chip" id="todayDate">Today</span></div>
+          <div class="today-progress"><div><span id="taskCount">0 of 0 complete</span><b id="todayPercent">0%</b></div><div class="progress-track"><i id="todayProgressBar"></i></div></div>
+          <div class="timetable" id="timetable"><div class="empty-plan"><span>✧</span><b>Your plan is waiting</b><p>Add subjects and an exam date, then generate your personalized timetable.</p></div></div>
+          <div class="encouragement"><span>✦</span><div><b>Consistency beats intensity.</b><p>One focused hour today is better than a perfect plan tomorrow.</p></div></div>
+        </section>
+      </div>
+      <footer>Made for focused minds <span>✦</span> FocusFlow</footer>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
